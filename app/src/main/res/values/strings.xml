@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GitApplication</string>
+    <string name="textView">Введите название репозитория</string>
+<string name="actionButton">Искать</string>
+<string name="openButton">Открыть</string>
+<string name="downloadButton">Скачать</string>
+</resources>
