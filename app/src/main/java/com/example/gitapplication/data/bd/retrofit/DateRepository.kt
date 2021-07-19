@@ -1,4 +1,4 @@
-package com.example.gitapplication
+package com.example.gitapplication.data.bd.retrofit
 
 data class DateRepository(
     var name : String,

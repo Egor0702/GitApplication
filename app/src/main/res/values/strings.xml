@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">GitApplication</string>
     <string name="textView">Введите название репозитория</string>
-<string name="actionButton">Искать</string>
-<string name="openButton">Открыть</string>
-<string name="downloadButton">Скачать</string>
+    <string name="actionButton">Искать</string>
+    <string name="openButton">Открыть</string>
+    <string name="downloadButton">Скачать</string>
+    <string name="not_text">Введите название аккаунта</string>
+    <string name="download">Загрузки</string>
+    <string name="error">Возможно, вы не правильно ввели имя аккаунта</string>
 </resources>

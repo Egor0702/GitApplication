@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity = "center"
+        android:src="@drawable/github_logo"
+       />
 
     <AutoCompleteTextView
         android:id="@+id/auto_complete"
@@ -28,24 +34,32 @@
         android:id="@+id/nameRepository"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text = "Выберите репозиторий:"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auto_complete" />
+        app:layout_constraintTop_toBottomOf="@+id/auto_complete"
+        android:visibility="invisible"/>
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="258dp"
-        android:layout_height="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameRepository" />
+        app:layout_constraintTop_toBottomOf="@+id/nameRepository"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/button_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/openButton"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
@@ -53,7 +67,9 @@
         android:id="@+id/button_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/downloadButton"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 

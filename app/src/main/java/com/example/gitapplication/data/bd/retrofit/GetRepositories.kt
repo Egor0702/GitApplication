@@ -1,4 +1,4 @@
-package com.example.gitapplication
+package com.example.gitapplication.data.bd.retrofit
 
 import io.reactivex.Single
 import retrofit2.http.GET
