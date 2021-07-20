@@ -2,6 +2,7 @@ package com.example.gitapplication.ui
 
 import android.app.DownloadManager
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContextCompat
 import com.example.gitapplication.data.bd.download.DownloadRepository
 import com.example.gitapplication.presenter.Presenter
 import com.example.gitapplication.R
@@ -96,6 +98,10 @@ class MainActivity : AppCompatActivity() {
             return true}
         }
         return super.onOptionsItemSelected(item)
+    }
+    override fun onRequestPermissionsResult(requestCode:Int, permissions : Array<String>, grantResults: IntArray){
+        presenter.requestPermission()
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
     }
 

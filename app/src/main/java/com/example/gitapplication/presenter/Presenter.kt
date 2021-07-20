@@ -24,12 +24,8 @@ class Presenter {
         var mainActivity: MainActivity? = null
         var number = 1
     }
-    fun DBCreate(context : Context){
-
-    }
-    fun getDataBD(file: File, account: String, repName: String, context: Context) {
-           val  dataBaseApp = SingltonDataBase.getInstance(context)
-            val repositoryDao = dataBaseApp.repositoryDao()
+    fun getDataBD(account: String, repName: String, context: Context) {
+        val repositoryDao = SingltonDataBase.getInstanceRepositoryDao(context)
             val entityDate = EntityDate(
                 id = number,
                 nameAccount = account,
@@ -41,8 +37,7 @@ class Presenter {
         }
 
     fun getAll(context: Context): List<EntityDate>{
-            val dataBaseApp = SingltonDataBase.getInstance(context)
-        val repositoryDao = dataBaseApp.repositoryDao()
+        val repositoryDao = SingltonDataBase.getInstanceRepositoryDao(context)
         val call: Callable<List<EntityDate>> = Callable<List<EntityDate>> {repositoryDao.getAll() }
         val future = Executors.newSingleThreadExecutor().submit(call)
         return future.get()
@@ -83,10 +78,14 @@ class Presenter {
     }
 
     fun sendRequest(name: String, obj: MainActivity, context : Context) {
-        val retrofitImpl = RetrofitImpl()
+        val retrofitImpl = SingltonDataBase.getInstanceRetrofitImpl()
         mainActivity = obj
         retrofitImpl.getRequest(name, context)
 
+    }
+    fun requestPermission(){
+        val downloadRepository = SingltonDataBase.getInstanceDownloadRepository()
+        downloadRepository.requestermissionsAction()
     }
 
 }
