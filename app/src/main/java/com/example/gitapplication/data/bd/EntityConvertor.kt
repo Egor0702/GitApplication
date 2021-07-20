@@ -7,7 +7,7 @@ class EntityConvertor {
     fun fromAll(all: List<EntityDate>): String {
         var s: String = ""
         for (i in all)
-             s = "i /n" as String
+            s = s.plus("$i \n") as String
         return s
     }
 

@@ -22,8 +22,8 @@ import java.util.concurrent.Executors
 class Presenter {
     companion object{
         var mainActivity: MainActivity? = null
+        var number = 1
     }
-    var number = 1
     fun DBCreate(context : Context){
 
     }
@@ -37,6 +37,7 @@ class Presenter {
             )
         val call: Callable<Unit> = Callable<Unit> {repositoryDao.insert(entityDate) }
         val future = Executors.newSingleThreadExecutor().submit(call)
+        number++
         }
 
     fun getAll(context: Context): List<EntityDate>{

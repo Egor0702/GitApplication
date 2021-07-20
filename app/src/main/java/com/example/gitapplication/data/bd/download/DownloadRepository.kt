@@ -7,12 +7,13 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getExternalFilesDirs
 import com.example.gitapplication.presenter.Presenter
 
 
-class DownloadRepository {
+class DownloadRepository: AppCompatActivity() {
     private val accessWrite: String = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
     private val REQUEST_CODE = 1
     lateinit var manager: DownloadManager
@@ -47,15 +48,15 @@ class DownloadRepository {
             presenter.getDataBD(repositFile.get(0), accountName, repositoryName, context)
         }
         }
-     fun onRequestPermissionsResult(requestCode:Int, permissions : Array<String>, grantResults: IntArray){
-        when(requestCode){
+     override fun onRequestPermissionsResult(requestCode:Int, permissions : Array<String>, grantResults: IntArray){
+         when(requestCode){
             REQUEST_CODE -> if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 manager.enqueue(request)
                 val repositFile = getExternalFilesDirs(context,"$repositoryName.zip")
                 presenter.getDataBD(repositFile.get(0), accountName, repositoryName, context)
             }
         }
+         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
     }
 
